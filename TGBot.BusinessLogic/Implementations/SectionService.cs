@@ -17,11 +17,15 @@ namespace TGBot.BusinessLogic.Implementations
             _context = context;
         }
 
-        public SectionDTO DTO(string title)
+        public string Title { get;}
+
+        public  SectionDTO DTO(string title)
         {
             Section section = new Section();
             using (DataContext context = new DataContext())
             {
+                //var userProfiles = _db.UserProfiles.Include(c => c.UserGroup);
+                //return View(userProfiles.ToList());
                 section = context.Sections.AsNoTracking().FirstOrDefault(x => x.Name == title);
             }
             SectionDTO sectionDTO = _mapper.Map<SectionDTO>(section);
