@@ -6,6 +6,7 @@ namespace TGBot.BusinessLogic.Interfaces
     {
         IEnumerable<TeacherDTO> Gets();
         TeacherDTO Get(int id);
+        TeacherDTO TeacherDTO();
         //IMapper Mapper { get; set; }
     }
 }

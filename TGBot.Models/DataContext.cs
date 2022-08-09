@@ -25,6 +25,7 @@ namespace TGBot.Models
 
         public DbSet<Section> Sections { get; set; } = null!;
         public DbSet<Teacher> Teachers { get; set; } = null!;
+        public DbSet<TeacherBySection> _TeacherBySections { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,6 +33,12 @@ namespace TGBot.Models
                 .HasOne(s => s.Section)
                 .WithMany(t => t.Teachers)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<TeacherBySection>((ts=>
+            {
+                ts.HasNoKey();
+                ts.ToView("View_TeacherBySection");
+            }));
         }
     }
 }

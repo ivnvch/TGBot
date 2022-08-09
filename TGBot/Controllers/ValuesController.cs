@@ -22,3 +22,5 @@ namespace TGBot.Controllers
             _teacherService = teacherService;
             //SectionDTOs = new List<SectionDTO>();
         }
+    }
+}
